@@ -1,0 +1,103 @@
+.carousel-info-box {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    z-index: 20;
+    max-width: 600px;
+    color: white;
+    font-family: Playfair;
+}
+
+.carousel-main-title {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 68px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.carousel-description {
+    font-family: 'Franklin Gothic';
+    margin-top: 20px;
+    font-size: 30px;
+    opacity: 0.85;
+}
+
+.carousel-thumbnails-container {
+    width: 50%;
+    height: 40%;
+    display: flex;
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    z-index: 30;
+}
+
+.thumb-next-btn {
+    padding: 8px;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.thumbnails-scroll {
+    overflow: hidden;
+    display: flex;
+    gap: 30px;
+}
+
+.thumbnail {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity .3s, transform .3s;
+}
+
+.thumbnail.active-thumb {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* ----------- ANIMACIÓN al click ----------- */
+
+.manual-image-anim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeZoom .35s ease forwards;
+}
+
+.manual-image-anim img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    opacity: 0;
+}
+
+/* animación suave */
+@keyframes fadeZoom {
+    0% {
+        opacity: 0;
+        transform: scale(1.06);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+

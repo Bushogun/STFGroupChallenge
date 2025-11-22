@@ -1,0 +1,26 @@
+.album-session {
+    padding-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+}
+
+.album-item {
+    justify-content: center;
+    height: 444px;
+    width: 360px;
+    overflow: hidden;
+}
+
+.album-image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.album-item:hover .album-image {
+    transform: scale(1.15);
+    opacity: 0.95;
+}

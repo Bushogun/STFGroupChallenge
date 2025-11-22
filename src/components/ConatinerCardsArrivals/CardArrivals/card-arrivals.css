@@ -1,0 +1,57 @@
+.card {
+    width: 364px;
+    overflow: hidden;
+    background: white;
+}
+
+.card-image-container {
+    position: relative;
+    width: 364px;
+    height: 538px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hotspot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: 0.2s;
+}
+
+.hotspot:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.card-body {
+    padding: 12px;
+    text-align: center;
+}
+
+.buy-btn {
+    width: 137px;
+    font-family: Playfair;
+    font-size: 18px;
+    font-weight: 100;
+    background: #4C2B08;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.buy-btn:hover {
+    background: #333;
+}

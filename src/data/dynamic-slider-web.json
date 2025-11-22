@@ -1,0 +1,39 @@
+{
+  "dynamicSlides": [
+    {
+      "title": "Titulo de baner 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "image": "/slider-web-dynamic/1.png"
+    },
+    {
+      "title": "Titulo de baner 2",
+      "description": "Texto descripción 2.",
+      "image": "/slider-web-dynamic/2.png"
+    },
+    {
+      "title": "Titulo de baner 3",
+      "description": "Texto descripción 3.",
+      "image": "/slider-web-dynamic/3.png"
+    },
+    {
+      "title": "Titulo de baner 4",
+      "description": "Texto descripción 4.",
+      "image": "/slider-web-dynamic/4.png"
+    },
+    {
+      "title": "Titulo de baner 5",
+      "description": "Texto descripción 5.",
+      "image": "/slider-web-dynamic/5.png"
+    },
+    {
+      "title": "Titulo de baner 6",
+      "description": "Texto descripción 6.",
+      "image": "/slider-web-dynamic/6.png"
+    },
+    {
+      "title": "Titulo de baner 7",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "image": "/slider-web-dynamic/7.png"
+    }    
+  ]
+}

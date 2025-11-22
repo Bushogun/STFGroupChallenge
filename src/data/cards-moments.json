@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "title": "Title of moment",
+      "image": "/cards-moments/1.png",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe error labore quos. Quis possimus at perspiciatis repudiandae nulla vitae voluptates.",
+      "AvailabilityDate": "2024-12-31"
+    },
+    {
+      "title": "Title of moment",
+      "image": "/cards-moments/2.png",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe error labore quos. Quis possimus at perspiciatis repudiandae nulla vitae voluptates.",
+      "AvailabilityDate": "2024-12-31"
+    },
+    {
+      "title": "Title of moment",
+      "image": "/cards-moments/3.png",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe error labore quos. Quis possimus at perspiciatis repudiandae nulla vitae voluptates.",
+      "AvailabilityDate": "2026-12-31"
+    },
+    {
+      "title": "Title of moment",
+      "image": "/cards-moments/4.png",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe error labore quos. Quis possimus at perspiciatis repudiandae nulla vitae voluptates.",
+      "AvailabilityDate": "2026-12-31"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+.title {
+    font-family: Playfair;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    padding-top: 40px;
+}

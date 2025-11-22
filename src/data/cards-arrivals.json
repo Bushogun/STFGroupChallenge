@@ -1,0 +1,35 @@
+{
+  "products": [
+    {
+      "title": "sweater",
+      "image": "/cards-arrivals/1.png",
+      "hotspots": [
+        { "x": 40, "y": 30 },
+        { "x": 70, "y": 60 }
+      ]
+    },
+    {
+      "title": "PANTS",
+      "image": "/cards-arrivals/2.png",
+      "hotspots": [
+        { "x": 50, "y": 50 }
+      ]
+    },
+    {
+      "title": "COATS",
+      "image": "/cards-arrivals/3.png",
+      "hotspots": [
+        { "x": 40, "y": 30 },
+        { "x": 70, "y": 60 }
+      ]
+    },
+    {
+      "title": "BOOTS",
+      "image": "/cards-arrivals/4.png",
+      "hotspots": [
+        { "x": 40, "y": 30 },
+        { "x": 70, "y": 60 }
+      ]
+    }
+  ]
+}
