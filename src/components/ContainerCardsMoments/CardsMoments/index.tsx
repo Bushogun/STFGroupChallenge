@@ -14,14 +14,23 @@ export default function CardArrivals({ title, image, description, AvailabilityDa
 
     const isAvailable = availableDate ? availableDate <= today : false;
 
+    const formattedDate = availableDate
+        ? availableDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
+        : "Unavailable";
+
     return (
         <div className={`card ${!isAvailable ? "card-no-events" : ""}`}>
             <div className="card-image-container">
+
                 <img
                     src={image}
                     className={`card-image ${!isAvailable ? "img-disabled" : ""}`}
                     alt={title}
                 />
+
+                <button className="card-button">
+                    {isAvailable ? "Show More" : `${formattedDate}`}
+                </button>
             </div>
 
             <div className="card-content">
