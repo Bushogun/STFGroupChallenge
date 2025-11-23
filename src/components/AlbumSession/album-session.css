@@ -7,10 +7,19 @@
     margin: 0 auto;
 }
 
+.mobile-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 500px) {
+    .mobile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .album-item {
-    height: 444px;
+    height: 200px;
     width: 100%;
-    max-width: 360px;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -19,35 +28,27 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .3s ease, opacity .3s ease;
 }
 
-.album-item:hover .album-image {
-    transform: scale(1.15);
-    opacity: 0.95;
+.mobile-carousel {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    width: 100%;
 }
 
-@media (max-width: 1700px) {
-    .album-session {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+.mobile-page {
+    min-width: 100%;
 }
 
-@media (max-width: 1350px) {
-    .album-session {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+.nav-btn {
+    position: absolute;
+    top: 35%;
+    z-index: 20;
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
 }
 
-@media (max-width: 1000px) {
-    .album-session {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    .album-session {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        width: 100%;
-    }
-}
+.nav-btn.left { left: 5px; }
+.nav-btn.right { right: 5px; }

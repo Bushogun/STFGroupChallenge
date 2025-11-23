@@ -43,7 +43,6 @@ export default function ContainerMomentsCards({ items, isMobile }: ContainerCard
         }
       >
 
-      {/* <div className="cards-container"> */}
         {items.map((item, i) => (
           <div key={i} className={isMobile ? "mobile-item" : ""}>
             <CardMoments

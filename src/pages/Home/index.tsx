@@ -43,7 +43,7 @@ function Home() {
       <section className='title'>
         SESSION PHOTOS
       </section>
-      <AlbumSession images={albumImages} />
+      <AlbumSession images={albumImages} isMobile={isMobile} />
       <section className='title' style={{ marginBottom: '40px', display: 'flex', gap: '20px' }}>
         <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
           <TikTokFilled style={{ color: '#000', fontSize: 32, cursor: "pointer" }} />
