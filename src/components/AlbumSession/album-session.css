@@ -18,7 +18,7 @@
 }
 
 .album-item {
-    height: 200px;
+    height: 444px;
     width: 100%;
     overflow: hidden;
     margin: 0 auto;
@@ -52,3 +52,9 @@
 
 .nav-btn.left { left: 5px; }
 .nav-btn.right { right: 5px; }
+
+@media (max-width: 768px) {
+    .album-item {
+        height: 200px;
+    }
+}

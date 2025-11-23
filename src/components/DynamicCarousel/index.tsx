@@ -41,7 +41,7 @@ export default function DynamicCarousel({ images, titles, description, interval 
         setTimeout(() => {
             setManualImage(null);
             setCurrent(index);
-        }, 350); // duración animación
+        }, 350); 
     };
 
     return (
@@ -52,7 +52,6 @@ export default function DynamicCarousel({ images, titles, description, interval 
                 <p className="carousel-description">{description?.[current]}</p>
             </div>
 
-            {/* --- THUMBNAILS --- */}
             <div className="carousel-thumbnails-container">
                 <button className="thumb-next-btn" onClick={handleNext}>
                     <RightCircleOutlined />
@@ -70,7 +69,6 @@ export default function DynamicCarousel({ images, titles, description, interval 
                 </div>
             </div>
 
-            {/* --- ANIMACIÓN MANUAL --- */}
             {manualImage && (
                 <div className="manual-image-anim"
                 style={{ transform: `translateX(-${current * 100}%)` }}
