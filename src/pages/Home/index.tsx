@@ -4,7 +4,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import Carousel from '../../components/Carousel';
 import ContainerCards from '../../components/ConatinerCardsArrivals';
 import AlbumSession from '../../components/AlbumSession';
-import DynamicCarousel from '../../components/DynamicCarousel';
+import DynamicCarousel from '../../components/DynamicCarousel/index';
 import slider from "../../data/slider-web.json";
 import arrivals from "../../data/cards-arrivals.json";
 import moments from "../../data/cards-moments.json";
@@ -34,7 +34,7 @@ function Home() {
       </section>
       <ContainerCards items={products} isMobile={isMobile}/>
       <section>
-      <DynamicCarousel images={dynamicImages} titles={dynamicTitles} description={dynamicDescriptions} isMobile={isMobile}/>
+      <DynamicCarousel images={dynamicImages} titles={dynamicTitles} description={dynamicDescriptions} />
       </section>
       <section className='title'>
         MOMENTS

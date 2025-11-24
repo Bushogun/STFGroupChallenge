@@ -1,94 +1,100 @@
-import { useEffect, useState, useRef } from "react";
-import { RightCircleOutlined } from "@ant-design/icons";
-import "./dynamic-carousel.css";
+import { useEffect, useRef } from "react";
+import "./dynamic-slider.css";
 
-interface DynamicCarouselProps {
+interface DynamicSliderProps {
     images: string[];
     titles: string[];
     description?: string[];
-    interval?: number;
+    interval?: number; 
+    autoNext?: number;
 }
 
-export default function DynamicCarousel({ images, titles, description, interval = 3000 }: DynamicCarouselProps) {
-    const [current, setCurrent] = useState(0);
-    const [manualImage, setManualImage] = useState<string | null>(null);
-    const timeoutRef = useRef<number | null>(null);
-
-    const resetTimeout = () => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
+export default function DynamicSlider({
+    images,
+    titles,
+    description,
+    interval = 30,
+    autoNext = 7000,
+}: DynamicSliderProps) {
+    const carouselRef = useRef<HTMLDivElement | null>(null);
+    const nextRef = useRef<HTMLButtonElement | null>(null);
 
     useEffect(() => {
-        resetTimeout();
-        timeoutRef.current = window.setTimeout(() => {
-            setCurrent(prev => (prev === images.length - 1 ? 0 : prev + 1));
-        }, interval);
-        return () => resetTimeout();
-    }, [current, images.length, interval]);
+        const carouselDom = carouselRef.current!;
+        const nextDom = nextRef.current!;
 
-  const handleNext = () => {
-        setCurrent(prev => (prev === images.length - 1 ? 0 : prev + 1));
-    };
+        const SliderDom = carouselDom.querySelector(".carousel .list")!;
+        const thumbnailBorderDom = carouselDom.querySelector(".carousel .thumbnail")!;
+        let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll(".item");
 
-    // const goNext = () => {
-    //     setManualImage(null);
-    //     setCurrent(prev => (prev === images.length - 1 ? 0 : prev + 1));
-    // };
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
 
-    const handleThumbnailClick = (img: string, index: number) => {
-        setManualImage(img);
+        let runTimeout: number;
+        let runNextAuto: number = window.setTimeout(() => nextDom.click(), autoNext);
 
-        setTimeout(() => {
-            setManualImage(null);
-            setCurrent(index);
-        }, 350); 
-    };
+        function showSlider(type: "next" | "prev") {
+            let SliderItemsDom = SliderDom.querySelectorAll(".carousel .list .item");
+            let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll(".item");
+
+            if (type === "next") {
+                SliderDom.appendChild(SliderItemsDom[0]);
+                thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+                carouselDom.classList.add("next");
+            } else {
+                SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+                thumbnailBorderDom.prepend(
+                    thumbnailItemsDom[thumbnailItemsDom.length - 1]
+                );
+                carouselDom.classList.add("prev");
+            }
+
+            clearTimeout(runTimeout);
+            runTimeout = window.setTimeout(() => {
+                carouselDom.classList.remove("next");
+                carouselDom.classList.remove("prev");
+            }, interval);
+
+            clearTimeout(runNextAuto);
+            runNextAuto = window.setTimeout(() => nextDom.click(), autoNext);
+        }
+
+        nextDom.onclick = () => showSlider("next");
+
+        return () => {
+            clearTimeout(runNextAuto);
+        };
+    }, [images]);
 
     return (
-        <div style={{ paddingTop: "70px" }}>
-        <div className="carousel">
-            <div className="carousel-info-box">
-                <h2 className="carousel-main-title">{titles[current]}</h2>
-                <p className="carousel-description">{description?.[current]}</p>
-            </div>
-
-            <div className="carousel-thumbnails-container">
-                <button className="thumb-next-btn" onClick={handleNext}>
-                    <RightCircleOutlined />
-                </button>
-
-                <div className="thumbnails-scroll">
-                    {images.map((img, i) => (
-                        <img
-                            key={i}
-                            src={img}
-                            className={`thumbnail ${current === i ? "active-thumb" : ""}`}
-                            onClick={() => handleThumbnailClick(img, i)}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            {manualImage && (
-                <div className="manual-image-anim"
-                style={{ transform: `translateX(-${current * 100}%)` }}
-                >
-                    <img src={manualImage} />
-                </div>
-            )}
-
-            {/* --- CAROUSEL SLIDES --- */}
-            <div
-                className="carousel-inner"
-                //anim del cover
-            >
+        <div className="carousel" ref={carouselRef}>
+            <div className="list">
                 {images.map((img, i) => (
-                    <div className="carousel-item" key={i}>
-                        <img src={img} alt={`slide-${i}`} />
+                    <div className="item" key={i}>
+                        <img src={img} />
+                        <div className="content">
+                            <div className="carousel-main-title">{titles[i]}</div>
+                            <div className="carousel-description">{description?.[i]}</div>
+
+                        </div>
                     </div>
                 ))}
             </div>
-        </div>
+
+            <div className="thumbnail">
+                {images.map((img, i) => (
+                    <div className="item" key={i}>
+                        <img src={img} />
+                    </div>
+                ))}
+            </div>
+
+            <div className="arrows">
+                <button id="next" ref={nextRef}>
+                    &gt;
+                </button>
+            </div>
+
+            <div className="time"></div>
         </div>
     );
 }
