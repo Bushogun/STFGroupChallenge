@@ -13,7 +13,7 @@ export default function DynamicSlider({
     images,
     titles,
     description,
-    interval = 30,
+    interval = 3000,
     autoNext = 7000,
 }: DynamicSliderProps) {
     const carouselRef = useRef<HTMLDivElement | null>(null);
